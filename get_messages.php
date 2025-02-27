@@ -1,9 +1,16 @@
 <?php
+// Add at the top of get_messages.php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Add CORS headers
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST');
+header('Access-Control-Allow-Headers: Content-Type');
+header('Content-Type: application/json');
+
 // Include database configuration
 require_once 'config.php';
-
-// Set headers for JSON response
-header('Content-Type: application/json');
 
 // Get parameters from request
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
